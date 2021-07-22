@@ -12,8 +12,8 @@ mybatis:
 wx:
   miniapp:
     configs:
-      - appid: #微信小程序的appid
-        secret: #微信小程序的Secret
+      - appid: wx1d6bd9d816529dc9 #微信小程序的appid
+        secret: 86964ac75d63e548f3290a0cbc12e4fb #微信小程序的Secret
         token: #微信小程序消息服务器配置的token
         aesKey: #微信小程序消息服务器配置的EncodingAESKey
         msgDataFormat: JSON
@@ -34,3 +34,4 @@ secure:
           - /**/*.css
           - /**/*.png
           - /**/*.ico
+          - /**/**
