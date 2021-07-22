@@ -1,7 +1,7 @@
 package com.hackerff.code.api.controller;
 
 import com.hackerff.code.api.service.UserService;
-import com.hackerff.code.model.YwymUsers;
+import com.hackerff.code.model.YwymUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class Demo {
     }
 
     @GetMapping("users")
-    public YwymUsers users (){
+    public YwymUser users (){
         return userService.user();
     }
 

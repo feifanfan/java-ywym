@@ -10,7 +10,7 @@ public interface YwymAdminMapper {
 
     int deleteByExample(YwymAdminExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(YwymAdmin record);
 
@@ -18,7 +18,7 @@ public interface YwymAdminMapper {
 
     List<YwymAdmin> selectByExample(YwymAdminExample example);
 
-    YwymAdmin selectByPrimaryKey(Integer id);
+    YwymAdmin selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") YwymAdmin record, @Param("example") YwymAdminExample example);
 

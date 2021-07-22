@@ -14,12 +14,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.hackerff.code</groupId>
+            <artifactId>ywym-service</artifactId>
         </dependency>
         <dependency>
             <groupId>com.hackerff.code</groupId>
-            <artifactId>ywym-service</artifactId>
+            <artifactId>ywym-security</artifactId>
         </dependency>
     </dependencies>
     <build>

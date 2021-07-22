@@ -1,7 +1,7 @@
-package com.hackerff.code.config;
+package com.hackerff.code.security.config;
 
-import com.hackerff.code.component.*;
-import com.hackerff.code.util.JwtUtil;
+import com.hackerff.code.security.component.*;
+import com.hackerff.code.security.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;

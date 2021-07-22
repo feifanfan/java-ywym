@@ -1,4 +1,4 @@
-package com.hackerff.code.config;
+package com.hackerff.code.security.config;
 
 import lombok.Getter;
 import lombok.Setter;

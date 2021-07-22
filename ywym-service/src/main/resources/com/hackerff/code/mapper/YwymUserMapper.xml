@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hackerff.code.mapper.YwymUsersMapper">
-  <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymUsers">
+<mapper namespace="com.hackerff.code.mapper.YwymUserMapper">
+  <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymUser">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="token" jdbcType="VARCHAR" property="token" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="country" jdbcType="VARCHAR" property="country" />
@@ -87,17 +87,17 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, token, nickname, avatar_url, gender, country, province, city, mobile, union_id, 
+    id, token, username, avatar_url, gender, country, province, city, mobile, union_id, 
     created_at, updated_at, deleted_at, password, openid, create_time, update_time, code_id, 
     code_uuid, delete_time, link, type, uid, uuid, collect
   </sql>
-  <select id="selectByExample" parameterType="com.hackerff.code.model.YwymUsersExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hackerff.code.model.YwymUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from ywym_users
+    from ywym_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -108,24 +108,24 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from ywym_users
+    from ywym_user
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ywym_users
+    delete from ywym_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.hackerff.code.model.YwymUsersExample">
-    delete from ywym_users
+  <delete id="deleteByExample" parameterType="com.hackerff.code.model.YwymUserExample">
+    delete from ywym_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hackerff.code.model.YwymUsers">
+  <insert id="insert" parameterType="com.hackerff.code.model.YwymUser">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_users (token, nickname, avatar_url, 
+    insert into ywym_user (token, username, avatar_url, 
       gender, country, province, 
       city, mobile, union_id, 
       created_at, updated_at, deleted_at, 
@@ -133,7 +133,7 @@
       update_time, code_id, code_uuid, 
       delete_time, link, type, 
       uid, uuid, collect)
-    values (#{token,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
+    values (#{token,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
       #{gender,jdbcType=INTEGER}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
       #{city,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, 
       #{createdAt,jdbcType=INTEGER}, #{updatedAt,jdbcType=INTEGER}, #{deletedAt,jdbcType=INTEGER}, 
@@ -142,17 +142,17 @@
       #{deleteTime,jdbcType=INTEGER}, #{link,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
       #{uid,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{collect,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymUsers">
+  <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymUser">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_users
+    insert into ywym_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="token != null">
         token,
       </if>
-      <if test="nickname != null">
-        nickname,
+      <if test="username != null">
+        username,
       </if>
       <if test="avatarUrl != null">
         avatar_url,
@@ -225,8 +225,8 @@
       <if test="token != null">
         #{token,jdbcType=VARCHAR},
       </if>
-      <if test="nickname != null">
-        #{nickname,jdbcType=VARCHAR},
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="avatarUrl != null">
         #{avatarUrl,jdbcType=VARCHAR},
@@ -296,14 +296,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.hackerff.code.model.YwymUsersExample" resultType="java.lang.Long">
-    select count(*) from ywym_users
+  <select id="countByExample" parameterType="com.hackerff.code.model.YwymUserExample" resultType="java.lang.Long">
+    select count(*) from ywym_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update ywym_users
+    update ywym_user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -311,8 +311,8 @@
       <if test="record.token != null">
         token = #{record.token,jdbcType=VARCHAR},
       </if>
-      <if test="record.nickname != null">
-        nickname = #{record.nickname,jdbcType=VARCHAR},
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
       <if test="record.avatarUrl != null">
         avatar_url = #{record.avatarUrl,jdbcType=VARCHAR},
@@ -386,10 +386,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update ywym_users
+    update ywym_user
     set id = #{record.id,jdbcType=INTEGER},
       token = #{record.token,jdbcType=VARCHAR},
-      nickname = #{record.nickname,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
       avatar_url = #{record.avatarUrl,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=INTEGER},
       country = #{record.country,jdbcType=VARCHAR},
@@ -416,14 +416,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymUsers">
-    update ywym_users
+  <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymUser">
+    update ywym_user
     <set>
       <if test="token != null">
         token = #{token,jdbcType=VARCHAR},
       </if>
-      <if test="nickname != null">
-        nickname = #{nickname,jdbcType=VARCHAR},
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="avatarUrl != null">
         avatar_url = #{avatarUrl,jdbcType=VARCHAR},
@@ -494,10 +494,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymUsers">
-    update ywym_users
+  <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymUser">
+    update ywym_user
     set token = #{token,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       avatar_url = #{avatarUrl,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=INTEGER},
       country = #{country,jdbcType=VARCHAR},

@@ -3,14 +3,14 @@ package com.hackerff.code.model;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
-public class YwymUsers implements Serializable {
+public class YwymUser implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "token")
     private String token;
 
     @ApiModelProperty(value = "用户昵称")
-    private String nickname;
+    private String username;
 
     @ApiModelProperty(value = "用户头像")
     private String avatarUrl;
@@ -85,12 +85,12 @@ public class YwymUsers implements Serializable {
         this.token = token;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAvatarUrl() {
@@ -277,7 +277,7 @@ public class YwymUsers implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", token=").append(token);
-        sb.append(", nickname=").append(nickname);
+        sb.append(", username=").append(username);
         sb.append(", avatarUrl=").append(avatarUrl);
         sb.append(", gender=").append(gender);
         sb.append(", country=").append(country);

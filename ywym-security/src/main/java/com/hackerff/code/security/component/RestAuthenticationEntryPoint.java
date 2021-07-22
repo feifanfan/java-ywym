@@ -1,4 +1,4 @@
-package com.hackerff.code.component;
+package com.hackerff.code.security.component;
 
 import cn.hutool.json.JSONUtil;
 import org.springframework.security.core.AuthenticationException;
@@ -20,7 +20,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(authException.getMessage()));
+        response.getWriter().println(authException.getMessage());
         response.getWriter().flush();
     }
 }

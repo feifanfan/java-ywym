@@ -1,4 +1,4 @@
-package com.hackerff.code.component;
+package com.hackerff.code.security.component;
 
 import cn.hutool.core.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;

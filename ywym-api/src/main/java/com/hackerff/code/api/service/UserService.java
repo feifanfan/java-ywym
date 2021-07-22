@@ -1,6 +1,7 @@
 package com.hackerff.code.api.service;
 
-import com.hackerff.code.model.YwymUsers;
+import com.hackerff.code.model.YwymUser;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author hackerff
@@ -9,5 +10,6 @@ import com.hackerff.code.model.YwymUsers;
  * @date 2021/7/15 11:06
  */
 public interface UserService {
-    YwymUsers user();
+    YwymUser user();
+    UserDetails loadUserByUsername(String username);
 }

@@ -1,6 +1,6 @@
-package com.hackerff.code.component;
+package com.hackerff.code.security.component;
 
-import com.hackerff.code.config.IgnoreUrlsConfig;
+import com.hackerff.code.security.config.IgnoreUrlsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;
@@ -21,12 +21,12 @@ import java.io.IOException;
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
 
     @Autowired
-    private com.hackerff.code.component.DynamicSecurityMetadataSource dynamicSecurityMetadataSource;
+    private com.hackerff.code.security.component.DynamicSecurityMetadataSource dynamicSecurityMetadataSource;
     @Autowired
     private IgnoreUrlsConfig ignoreUrlsConfig;
 
     @Autowired
-    public void setMyAccessDecisionManager(com.hackerff.code.component.DynamicAccessDecisionManager dynamicAccessDecisionManager) {
+    public void setMyAccessDecisionManager(com.hackerff.code.security.component.DynamicAccessDecisionManager dynamicAccessDecisionManager) {
         super.setAccessDecisionManager(dynamicAccessDecisionManager);
     }
 

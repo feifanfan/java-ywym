@@ -1,4 +1,4 @@
-package com.hackerff.code.util;
+package com.hackerff.code.security.util;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;

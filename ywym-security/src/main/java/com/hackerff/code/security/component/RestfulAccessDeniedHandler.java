@@ -1,4 +1,4 @@
-package com.hackerff.code.component;
+package com.hackerff.code.security.component;
 
 import cn.hutool.json.JSONUtil;
 import org.springframework.security.access.AccessDeniedException;

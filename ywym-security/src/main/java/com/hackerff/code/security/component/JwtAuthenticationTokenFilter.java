@@ -1,6 +1,6 @@
-package com.hackerff.code.component;
+package com.hackerff.code.security.component;
 
-import com.hackerff.code.util.JwtUtil;
+import com.hackerff.code.security.util.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
