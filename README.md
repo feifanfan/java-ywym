@@ -25,3 +25,18 @@
     * 扫码红包活动（该功能将在后期添加）
     * 用户表单(可自定义表单项，用于活动搜集用户或保修等)
     * ...
+    
+## 模块划分
+    ywym
+    ├── ywym-api 用户接口
+    ├──ywym-admin 后台接口（企业管理端）
+    ├── ywym-boss  总管理端接口（boss系统）
+    ├── ywym-common 通用工具包
+    ├── ywym-security jwt验证及权限管理(SpringSecurity封装公用模块)
+    └── ywym-service MyBatisGenerator生成的数据库操作代码
+    
+## 开发环境
+    | 工具 | 版本 |
+    | JDK | 1.8 |
+    |Mysql| 5.7 |
+    
