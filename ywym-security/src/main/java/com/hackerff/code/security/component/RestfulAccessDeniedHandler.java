@@ -1,6 +1,7 @@
 package com.hackerff.code.security.component;
 
 import cn.hutool.json.JSONUtil;
+import com.hackerff.code.common.result.CommonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
@@ -22,7 +23,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(e.getMessage()));
+        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden("权限不足")));
         response.getWriter().flush();
     }
 }

@@ -1,6 +1,7 @@
 package com.hackerff.code.security.component;
 
 import cn.hutool.json.JSONUtil;
+import com.hackerff.code.common.result.CommonResult;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
@@ -20,7 +21,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(authException.getMessage());
+        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden("未登录或登录过期")));
         response.getWriter().flush();
     }
 }

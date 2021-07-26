@@ -12,4 +12,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 public interface UserService {
     YwymUser user();
     UserDetails loadUserByUsername(String username);
+    YwymUser getUserByOpenid(String openid);
+    YwymUser getUserByOpenidAndAppid(String openid,int appid);
+    YwymUser insertUser(String openid,int appid);
+    String login(String openid);
+    YwymUser getCurrentUser();
+    YwymUser setUserInfo(YwymUser user);
+    UserDetails loadUserByOpenid(String openid);
+    UserDetails loadUserById(String id);
 }

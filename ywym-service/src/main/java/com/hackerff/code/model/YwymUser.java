@@ -2,9 +2,12 @@ package com.hackerff.code.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import java.util.Date;
 
 public class YwymUser implements Serializable {
     private Integer id;
+
+    private Integer uniacid;
 
     @ApiModelProperty(value = "token")
     private String token;
@@ -33,39 +36,16 @@ public class YwymUser implements Serializable {
     @ApiModelProperty(value = "小程序unionId")
     private String unionId;
 
-    @ApiModelProperty(value = "插入时间")
-    private Integer createdAt;
-
-    @ApiModelProperty(value = "更新时间")
-    private Integer updatedAt;
-
-    @ApiModelProperty(value = "删除时间")
-    private Integer deletedAt;
-
     private String password;
 
     @ApiModelProperty(value = "小程序openId")
     private String openid;
 
-    private Long createTime;
+    private Date createTime;
 
-    private Long updateTime;
-
-    private Integer codeId;
-
-    private String codeUuid;
+    private Date updateTime;
 
     private Integer deleteTime;
-
-    private String link;
-
-    private Integer type;
-
-    private Integer uid;
-
-    private String uuid;
-
-    private Integer collect;
 
     private static final long serialVersionUID = 1L;
 
@@ -75,6 +55,14 @@ public class YwymUser implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUniacid() {
+        return uniacid;
+    }
+
+    public void setUniacid(Integer uniacid) {
+        this.uniacid = uniacid;
     }
 
     public String getToken() {
@@ -149,30 +137,6 @@ public class YwymUser implements Serializable {
         this.unionId = unionId;
     }
 
-    public Integer getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Integer getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Integer deletedAt) {
-        this.deletedAt = deletedAt;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -189,36 +153,20 @@ public class YwymUser implements Serializable {
         this.openid = openid;
     }
 
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Long getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public Integer getCodeId() {
-        return codeId;
-    }
-
-    public void setCodeId(Integer codeId) {
-        this.codeId = codeId;
-    }
-
-    public String getCodeUuid() {
-        return codeUuid;
-    }
-
-    public void setCodeUuid(String codeUuid) {
-        this.codeUuid = codeUuid;
     }
 
     public Integer getDeleteTime() {
@@ -229,46 +177,6 @@ public class YwymUser implements Serializable {
         this.deleteTime = deleteTime;
     }
 
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getCollect() {
-        return collect;
-    }
-
-    public void setCollect(Integer collect) {
-        this.collect = collect;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -276,6 +184,7 @@ public class YwymUser implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", uniacid=").append(uniacid);
         sb.append(", token=").append(token);
         sb.append(", username=").append(username);
         sb.append(", avatarUrl=").append(avatarUrl);
@@ -285,21 +194,11 @@ public class YwymUser implements Serializable {
         sb.append(", city=").append(city);
         sb.append(", mobile=").append(mobile);
         sb.append(", unionId=").append(unionId);
-        sb.append(", createdAt=").append(createdAt);
-        sb.append(", updatedAt=").append(updatedAt);
-        sb.append(", deletedAt=").append(deletedAt);
         sb.append(", password=").append(password);
         sb.append(", openid=").append(openid);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", codeId=").append(codeId);
-        sb.append(", codeUuid=").append(codeUuid);
         sb.append(", deleteTime=").append(deleteTime);
-        sb.append(", link=").append(link);
-        sb.append(", type=").append(type);
-        sb.append(", uid=").append(uid);
-        sb.append(", uuid=").append(uuid);
-        sb.append(", collect=").append(collect);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -81,6 +81,17 @@ public class JwtUtil {
         return username;
     }
 
+    public String getOpenidFromToken(String token) {
+        String openid;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            openid = claims.getSubject();
+        } catch (Exception e) {
+            openid = null;
+        }
+        return openid;
+    }
+
     /**
      * 验证token是否还有效
      *

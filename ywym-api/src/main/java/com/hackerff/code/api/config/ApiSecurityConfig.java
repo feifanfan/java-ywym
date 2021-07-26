@@ -24,6 +24,6 @@ public class ApiSecurityConfig extends SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return username -> userService.loadUserByUsername(username);
+        return id -> userService.loadUserById(id);
     }
 }

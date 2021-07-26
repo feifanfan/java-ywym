@@ -32,7 +32,10 @@ public class UserDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return ywymUser.getUsername();
+        return ywymUser.getId().toString();
+    }
+    public String getOpenid(){
+        return  ywymUser.getOpenid();
     }
 
     @Override
