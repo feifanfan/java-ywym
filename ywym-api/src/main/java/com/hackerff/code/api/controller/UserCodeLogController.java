@@ -1,6 +1,5 @@
 package com.hackerff.code.api.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.hackerff.code.api.service.UserCodeLogService;
 import com.hackerff.code.api.service.UserService;
 import com.hackerff.code.common.result.CommonPage;
@@ -9,7 +8,6 @@ import com.hackerff.code.model.YwymUser;
 import com.hackerff.code.model.YwymUserCodeLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,9 +33,9 @@ public class UserCodeLogController {
 
     @ApiOperation("用户使用过的二维码列表")
     @GetMapping("/user-code-log")
-    public CommonResult userCodeLog(@RequestParam(required = false,defaultValue = "1") int pageNum,@RequestParam(required = false,defaultValue = "15") int pageSize){
+    public CommonResult userCodeLog(@RequestParam(required = false, defaultValue = "1") int pageNum, @RequestParam(required = false, defaultValue = "15") int pageSize) {
         YwymUser user = userService.getCurrentUser();
-        List<YwymUserCodeLog> list = userCodeLogService.getLogsByUserId(user.getId(),pageNum,pageSize);
+        List<YwymUserCodeLog> list = userCodeLogService.getLogsByUserId(user.getId(), pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(list));
     }
 
