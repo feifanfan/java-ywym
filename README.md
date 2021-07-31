@@ -36,7 +36,10 @@
     └── ywym-service MyBatisGenerator生成的数据库操作代码
     
 ## 开发环境
-    | 工具 | 版本 |
-    | JDK | 1.8 |
-    |Mysql| 5.7 |
+
+
+| 工具 | 版本 |
+| :-----| ----: |
+| JDK | 1.8 | 
+| Mysql | 5.7 | 
     

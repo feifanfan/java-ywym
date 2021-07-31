@@ -16,15 +16,21 @@ public interface YwymUserCodeMapper {
 
     int insertSelective(YwymUserCode record);
 
+    List<YwymUserCode> selectByExampleWithBLOBs(YwymUserCodeExample example);
+
     List<YwymUserCode> selectByExample(YwymUserCodeExample example);
 
     YwymUserCode selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") YwymUserCode record, @Param("example") YwymUserCodeExample example);
 
+    int updateByExampleWithBLOBs(@Param("record") YwymUserCode record, @Param("example") YwymUserCodeExample example);
+
     int updateByExample(@Param("record") YwymUserCode record, @Param("example") YwymUserCodeExample example);
 
     int updateByPrimaryKeySelective(YwymUserCode record);
+
+    int updateByPrimaryKeyWithBLOBs(YwymUserCode record);
 
     int updateByPrimaryKey(YwymUserCode record);
 }

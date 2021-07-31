@@ -165,63 +165,63 @@ public class YwymFormFieldDataExample {
             return (Criteria) this;
         }
 
-        public Criteria andFidIsNull() {
-            addCriterion("fid is null");
+        public Criteria andFormIdIsNull() {
+            addCriterion("form_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andFidIsNotNull() {
-            addCriterion("fid is not null");
+        public Criteria andFormIdIsNotNull() {
+            addCriterion("form_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFidEqualTo(Integer value) {
-            addCriterion("fid =", value, "fid");
+        public Criteria andFormIdEqualTo(Integer value) {
+            addCriterion("form_id =", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidNotEqualTo(Integer value) {
-            addCriterion("fid <>", value, "fid");
+        public Criteria andFormIdNotEqualTo(Integer value) {
+            addCriterion("form_id <>", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidGreaterThan(Integer value) {
-            addCriterion("fid >", value, "fid");
+        public Criteria andFormIdGreaterThan(Integer value) {
+            addCriterion("form_id >", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("fid >=", value, "fid");
+        public Criteria andFormIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("form_id >=", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidLessThan(Integer value) {
-            addCriterion("fid <", value, "fid");
+        public Criteria andFormIdLessThan(Integer value) {
+            addCriterion("form_id <", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidLessThanOrEqualTo(Integer value) {
-            addCriterion("fid <=", value, "fid");
+        public Criteria andFormIdLessThanOrEqualTo(Integer value) {
+            addCriterion("form_id <=", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidIn(List<Integer> values) {
-            addCriterion("fid in", values, "fid");
+        public Criteria andFormIdIn(List<Integer> values) {
+            addCriterion("form_id in", values, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidNotIn(List<Integer> values) {
-            addCriterion("fid not in", values, "fid");
+        public Criteria andFormIdNotIn(List<Integer> values) {
+            addCriterion("form_id not in", values, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidBetween(Integer value1, Integer value2) {
-            addCriterion("fid between", value1, value2, "fid");
+        public Criteria andFormIdBetween(Integer value1, Integer value2) {
+            addCriterion("form_id between", value1, value2, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidNotBetween(Integer value1, Integer value2) {
-            addCriterion("fid not between", value1, value2, "fid");
+        public Criteria andFormIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("form_id not between", value1, value2, "formId");
             return (Criteria) this;
         }
 

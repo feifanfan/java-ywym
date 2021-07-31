@@ -10,7 +10,7 @@ public interface YwymCodeMapper {
 
     int deleteByExample(YwymCodeExample example);
 
-    int deleteByPrimaryKey(String uuid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(YwymCode record);
 
@@ -18,7 +18,7 @@ public interface YwymCodeMapper {
 
     List<YwymCode> selectByExample(YwymCodeExample example);
 
-    YwymCode selectByPrimaryKey(String uuid);
+    YwymCode selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") YwymCode record, @Param("example") YwymCodeExample example);
 

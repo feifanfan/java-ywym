@@ -10,10 +10,10 @@ public class YwymCodeField implements Serializable {
 
     private Integer deleteTime;
 
-    @ApiModelProperty(value = "我也不知道干啥的")
-    private String essential;
+    @ApiModelProperty(value = "是否必填")
+    private Integer required;
 
-    private Integer fid;
+    private Integer formId;
 
     private String remark;
 
@@ -51,20 +51,20 @@ public class YwymCodeField implements Serializable {
         this.deleteTime = deleteTime;
     }
 
-    public String getEssential() {
-        return essential;
+    public Integer getRequired() {
+        return required;
     }
 
-    public void setEssential(String essential) {
-        this.essential = essential;
+    public void setRequired(Integer required) {
+        this.required = required;
     }
 
-    public Integer getFid() {
-        return fid;
+    public Integer getFormId() {
+        return formId;
     }
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
+    public void setFormId(Integer formId) {
+        this.formId = formId;
     }
 
     public String getRemark() {
@@ -116,8 +116,8 @@ public class YwymCodeField implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", createTime=").append(createTime);
         sb.append(", deleteTime=").append(deleteTime);
-        sb.append(", essential=").append(essential);
-        sb.append(", fid=").append(fid);
+        sb.append(", required=").append(required);
+        sb.append(", formId=").append(formId);
         sb.append(", remark=").append(remark);
         sb.append(", sort=").append(sort);
         sb.append(", title=").append(title);

@@ -1,6 +1,7 @@
 package com.hackerff.code.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class YwymCodeLogExample {
@@ -164,63 +165,63 @@ public class YwymCodeLogExample {
             return (Criteria) this;
         }
 
-        public Criteria andCodeidIsNull() {
-            addCriterion("codeid is null");
+        public Criteria andCodeIdIsNull() {
+            addCriterion("code_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidIsNotNull() {
-            addCriterion("codeid is not null");
+        public Criteria andCodeIdIsNotNull() {
+            addCriterion("code_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidEqualTo(Integer value) {
-            addCriterion("codeid =", value, "codeid");
+        public Criteria andCodeIdEqualTo(Integer value) {
+            addCriterion("code_id =", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidNotEqualTo(Integer value) {
-            addCriterion("codeid <>", value, "codeid");
+        public Criteria andCodeIdNotEqualTo(Integer value) {
+            addCriterion("code_id <>", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidGreaterThan(Integer value) {
-            addCriterion("codeid >", value, "codeid");
+        public Criteria andCodeIdGreaterThan(Integer value) {
+            addCriterion("code_id >", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("codeid >=", value, "codeid");
+        public Criteria andCodeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("code_id >=", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidLessThan(Integer value) {
-            addCriterion("codeid <", value, "codeid");
+        public Criteria andCodeIdLessThan(Integer value) {
+            addCriterion("code_id <", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidLessThanOrEqualTo(Integer value) {
-            addCriterion("codeid <=", value, "codeid");
+        public Criteria andCodeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("code_id <=", value, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidIn(List<Integer> values) {
-            addCriterion("codeid in", values, "codeid");
+        public Criteria andCodeIdIn(List<Integer> values) {
+            addCriterion("code_id in", values, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidNotIn(List<Integer> values) {
-            addCriterion("codeid not in", values, "codeid");
+        public Criteria andCodeIdNotIn(List<Integer> values) {
+            addCriterion("code_id not in", values, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidBetween(Integer value1, Integer value2) {
-            addCriterion("codeid between", value1, value2, "codeid");
+        public Criteria andCodeIdBetween(Integer value1, Integer value2) {
+            addCriterion("code_id between", value1, value2, "codeId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeidNotBetween(Integer value1, Integer value2) {
-            addCriterion("codeid not between", value1, value2, "codeid");
+        public Criteria andCodeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("code_id not between", value1, value2, "codeId");
             return (Criteria) this;
         }
 
@@ -364,52 +365,52 @@ public class YwymCodeLogExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(Integer value) {
+        public Criteria andCreateTimeEqualTo(Date value) {
             addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Integer value) {
+        public Criteria andCreateTimeNotEqualTo(Date value) {
             addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(Integer value) {
+        public Criteria andCreateTimeGreaterThan(Date value) {
             addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
             addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(Integer value) {
+        public Criteria andCreateTimeLessThan(Date value) {
             addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
             addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIn(List<Integer> values) {
+        public Criteria andCreateTimeIn(List<Date> values) {
             addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Integer> values) {
+        public Criteria andCreateTimeNotIn(List<Date> values) {
             addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(Integer value1, Integer value2) {
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
             addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
@@ -424,52 +425,52 @@ public class YwymCodeLogExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeEqualTo(Integer value) {
+        public Criteria andUpdateTimeEqualTo(Date value) {
             addCriterion("update_time =", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotEqualTo(Integer value) {
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
             addCriterion("update_time <>", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThan(Integer value) {
+        public Criteria andUpdateTimeGreaterThan(Date value) {
             addCriterion("update_time >", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
             addCriterion("update_time >=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThan(Integer value) {
+        public Criteria andUpdateTimeLessThan(Date value) {
             addCriterion("update_time <", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
             addCriterion("update_time <=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeIn(List<Integer> values) {
+        public Criteria andUpdateTimeIn(List<Date> values) {
             addCriterion("update_time in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotIn(List<Integer> values) {
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
             addCriterion("update_time not in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeBetween(Integer value1, Integer value2) {
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
             addCriterion("update_time between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
@@ -484,52 +485,52 @@ public class YwymCodeLogExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeEqualTo(Integer value) {
+        public Criteria andDeleteTimeEqualTo(Date value) {
             addCriterion("delete_time =", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotEqualTo(Integer value) {
+        public Criteria andDeleteTimeNotEqualTo(Date value) {
             addCriterion("delete_time <>", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeGreaterThan(Integer value) {
+        public Criteria andDeleteTimeGreaterThan(Date value) {
             addCriterion("delete_time >", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andDeleteTimeGreaterThanOrEqualTo(Date value) {
             addCriterion("delete_time >=", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeLessThan(Integer value) {
+        public Criteria andDeleteTimeLessThan(Date value) {
             addCriterion("delete_time <", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andDeleteTimeLessThanOrEqualTo(Date value) {
             addCriterion("delete_time <=", value, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeIn(List<Integer> values) {
+        public Criteria andDeleteTimeIn(List<Date> values) {
             addCriterion("delete_time in", values, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotIn(List<Integer> values) {
+        public Criteria andDeleteTimeNotIn(List<Date> values) {
             addCriterion("delete_time not in", values, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeBetween(Integer value1, Integer value2) {
+        public Criteria andDeleteTimeBetween(Date value1, Date value2) {
             addCriterion("delete_time between", value1, value2, "deleteTime");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andDeleteTimeNotBetween(Date value1, Date value2) {
             addCriterion("delete_time not between", value1, value2, "deleteTime");
             return (Criteria) this;
         }

@@ -5,25 +5,33 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class YwymCode implements Serializable {
+    private Integer id;
+
     private String uuid;
 
-    private Integer cid;
+    private Integer userId;
 
-    private Date createTime;
+    private Integer goodsId;
 
-    private Date deleteTime;
+    private Integer companyId;
 
     private String link;
 
-    private Integer uid;
+    private Date createTime;
 
     private Date updateTime;
 
-    private Integer gid;
-
-    private Integer id;
+    private Date deleteTime;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUuid() {
         return uuid;
@@ -33,28 +41,28 @@ public class YwymCode implements Serializable {
         this.uuid = uuid;
     }
 
-    public Integer getCid() {
-        return cid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public Date getDeleteTime() {
-        return deleteTime;
+    public Integer getCompanyId() {
+        return companyId;
     }
 
-    public void setDeleteTime(Date deleteTime) {
-        this.deleteTime = deleteTime;
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 
     public String getLink() {
@@ -65,12 +73,12 @@ public class YwymCode implements Serializable {
         this.link = link;
     }
 
-    public Integer getUid() {
-        return uid;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {
@@ -81,20 +89,12 @@ public class YwymCode implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getGid() {
-        return gid;
+    public Date getDeleteTime() {
+        return deleteTime;
     }
 
-    public void setGid(Integer gid) {
-        this.gid = gid;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDeleteTime(Date deleteTime) {
+        this.deleteTime = deleteTime;
     }
 
     @Override
@@ -103,15 +103,15 @@ public class YwymCode implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uuid=").append(uuid);
-        sb.append(", cid=").append(cid);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", deleteTime=").append(deleteTime);
-        sb.append(", link=").append(link);
-        sb.append(", uid=").append(uid);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", gid=").append(gid);
         sb.append(", id=").append(id);
+        sb.append(", uuid=").append(uuid);
+        sb.append(", userId=").append(userId);
+        sb.append(", goodsId=").append(goodsId);
+        sb.append(", companyId=").append(companyId);
+        sb.append(", link=").append(link);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append(", deleteTime=").append(deleteTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -3,7 +3,7 @@
 <mapper namespace="com.hackerff.code.mapper.YwymFormFieldMapper">
   <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymFormField">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="form_id" jdbcType="INTEGER" property="formId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="essential" jdbcType="TINYINT" property="essential" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, fid, title, type, essential, remark, sort, create_time, update_time, delete_time
+    id, form_id, title, type, essential, remark, sort, create_time, update_time, delete_time
   </sql>
   <select id="selectByExample" parameterType="com.hackerff.code.model.YwymFormFieldExample" resultMap="BaseResultMap">
     select
@@ -108,11 +108,11 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_form_field (fid, title, type, 
+    insert into ywym_form_field (form_id, title, type, 
       essential, remark, sort, 
       create_time, update_time, delete_time
       )
-    values (#{fid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+    values (#{formId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{essential,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
       #{createTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER}, #{deleteTime,jdbcType=INTEGER}
       )
@@ -123,8 +123,8 @@
     </selectKey>
     insert into ywym_form_field
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fid != null">
-        fid,
+      <if test="formId != null">
+        form_id,
       </if>
       <if test="title != null">
         title,
@@ -152,8 +152,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fid != null">
-        #{fid,jdbcType=INTEGER},
+      <if test="formId != null">
+        #{formId,jdbcType=INTEGER},
       </if>
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
@@ -193,8 +193,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.fid != null">
-        fid = #{record.fid,jdbcType=INTEGER},
+      <if test="record.formId != null">
+        form_id = #{record.formId,jdbcType=INTEGER},
       </if>
       <if test="record.title != null">
         title = #{record.title,jdbcType=VARCHAR},
@@ -228,7 +228,7 @@
   <update id="updateByExample" parameterType="map">
     update ywym_form_field
     set id = #{record.id,jdbcType=INTEGER},
-      fid = #{record.fid,jdbcType=INTEGER},
+      form_id = #{record.formId,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=VARCHAR},
       essential = #{record.essential,jdbcType=TINYINT},
@@ -244,8 +244,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymFormField">
     update ywym_form_field
     <set>
-      <if test="fid != null">
-        fid = #{fid,jdbcType=INTEGER},
+      <if test="formId != null">
+        form_id = #{formId,jdbcType=INTEGER},
       </if>
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
@@ -276,7 +276,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymFormField">
     update ywym_form_field
-    set fid = #{fid,jdbcType=INTEGER},
+    set form_id = #{formId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       essential = #{essential,jdbcType=TINYINT},

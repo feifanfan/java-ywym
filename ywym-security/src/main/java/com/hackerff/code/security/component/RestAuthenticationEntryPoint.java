@@ -21,7 +21,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setHeader("Cache-Control","no-cache");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden("未登录或登录过期")));
+        response.getWriter().println(JSONUtil.parse(CommonResult.unauthorized(authException.getMessage())));
         response.getWriter().flush();
     }
 }

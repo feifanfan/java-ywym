@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hackerff.code.mapper.YwymCodeMapper">
   <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymCode">
-    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
-    <result column="cid" jdbcType="INTEGER" property="cid" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
     <result column="link" jdbcType="VARCHAR" property="link" />
-    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="gid" jdbcType="INTEGER" property="gid" />
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uuid, cid, create_time, delete_time, link, uid, update_time, gid, id
+    id, uuid, user_id, goods_id, company_id, link, create_time, update_time, delete_time
   </sql>
   <select id="selectByExample" parameterType="com.hackerff.code.model.YwymCodeExample" resultMap="BaseResultMap">
     select
@@ -87,15 +87,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from ywym_code
-    where uuid = #{uuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ywym_code
-    where uuid = #{uuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.hackerff.code.model.YwymCodeExample">
     delete from ywym_code
@@ -107,12 +107,12 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_code (uuid, cid, create_time, 
-      delete_time, link, uid, 
-      update_time, gid)
-    values (#{uuid,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{deleteTime,jdbcType=TIMESTAMP}, #{link,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{gid,jdbcType=INTEGER})
+    insert into ywym_code (uuid, user_id, goods_id, 
+      company_id, link, create_time, 
+      update_time, delete_time)
+    values (#{uuid,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
+      #{companyId,jdbcType=INTEGER}, #{link,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymCode">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -123,52 +123,52 @@
       <if test="uuid != null">
         uuid,
       </if>
-      <if test="cid != null">
-        cid,
+      <if test="userId != null">
+        user_id,
       </if>
-      <if test="createTime != null">
-        create_time,
+      <if test="goodsId != null">
+        goods_id,
       </if>
-      <if test="deleteTime != null">
-        delete_time,
+      <if test="companyId != null">
+        company_id,
       </if>
       <if test="link != null">
         link,
       </if>
-      <if test="uid != null">
-        uid,
+      <if test="createTime != null">
+        create_time,
       </if>
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="gid != null">
-        gid,
+      <if test="deleteTime != null">
+        delete_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uuid != null">
         #{uuid,jdbcType=VARCHAR},
       </if>
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
       </if>
-      <if test="deleteTime != null">
-        #{deleteTime,jdbcType=TIMESTAMP},
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
       </if>
       <if test="link != null">
         #{link,jdbcType=VARCHAR},
       </if>
-      <if test="uid != null">
-        #{uid,jdbcType=INTEGER},
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="gid != null">
-        #{gid,jdbcType=INTEGER},
+      <if test="deleteTime != null">
+        #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -181,32 +181,32 @@
   <update id="updateByExampleSelective" parameterType="map">
     update ywym_code
     <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
       <if test="record.uuid != null">
         uuid = #{record.uuid,jdbcType=VARCHAR},
       </if>
-      <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=INTEGER},
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
       </if>
-      <if test="record.deleteTime != null">
-        delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
       </if>
       <if test="record.link != null">
         link = #{record.link,jdbcType=VARCHAR},
       </if>
-      <if test="record.uid != null">
-        uid = #{record.uid,jdbcType=INTEGER},
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.gid != null">
-        gid = #{record.gid,jdbcType=INTEGER},
-      </if>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.deleteTime != null">
+        delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -215,15 +215,15 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update ywym_code
-    set uuid = #{record.uuid,jdbcType=VARCHAR},
-      cid = #{record.cid,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
+    set id = #{record.id,jdbcType=INTEGER},
+      uuid = #{record.uuid,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=INTEGER},
       link = #{record.link,jdbcType=VARCHAR},
-      uid = #{record.uid,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      gid = #{record.gid,jdbcType=INTEGER},
-      id = #{record.id,jdbcType=INTEGER}
+      delete_time = #{record.deleteTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -231,43 +231,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymCode">
     update ywym_code
     <set>
-      <if test="cid != null">
-        cid = #{cid,jdbcType=INTEGER},
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="deleteTime != null">
-        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
       </if>
       <if test="link != null">
         link = #{link,jdbcType=VARCHAR},
       </if>
-      <if test="uid != null">
-        uid = #{uid,jdbcType=INTEGER},
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="gid != null">
-        gid = #{gid,jdbcType=INTEGER},
-      </if>
-      <if test="id != null">
-        id = #{id,jdbcType=INTEGER},
+      <if test="deleteTime != null">
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where uuid = #{uuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymCode">
     update ywym_code
-    set cid = #{cid,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
       link = #{link,jdbcType=VARCHAR},
-      uid = #{uid,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      gid = #{gid,jdbcType=INTEGER},
-      id = #{id,jdbcType=INTEGER}
-    where uuid = #{uuid,jdbcType=VARCHAR}
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

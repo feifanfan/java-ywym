@@ -8,7 +8,7 @@ public class YwymFormFieldData implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "表单id")
-    private Integer fid;
+    private Integer formId;
 
     @ApiModelProperty(value = "表单行form_field的id")
     private Integer fieldId;
@@ -35,12 +35,12 @@ public class YwymFormFieldData implements Serializable {
         this.id = id;
     }
 
-    public Integer getFid() {
-        return fid;
+    public Integer getFormId() {
+        return formId;
     }
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
+    public void setFormId(Integer formId) {
+        this.formId = formId;
     }
 
     public Integer getFieldId() {
@@ -98,7 +98,7 @@ public class YwymFormFieldData implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", fid=").append(fid);
+        sb.append(", formId=").append(formId);
         sb.append(", fieldId=").append(fieldId);
         sb.append(", title=").append(title);
         sb.append(", content=").append(content);

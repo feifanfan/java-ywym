@@ -5,8 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="create_time" jdbcType="INTEGER" property="createTime" />
     <result column="delete_time" jdbcType="INTEGER" property="deleteTime" />
-    <result column="essential" jdbcType="VARCHAR" property="essential" />
-    <result column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="required" jdbcType="INTEGER" property="required" />
+    <result column="form_id" jdbcType="INTEGER" property="formId" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="title" jdbcType="VARCHAR" property="title" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, delete_time, essential, fid, remark, sort, title, type, update_time
+    id, create_time, delete_time, required, form_id, remark, sort, title, type, update_time
   </sql>
   <select id="selectByExample" parameterType="com.hackerff.code.model.YwymCodeFieldExample" resultMap="BaseResultMap">
     select
@@ -108,12 +108,12 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_code_field (create_time, delete_time, essential, 
-      fid, remark, sort, 
+    insert into ywym_code_field (create_time, delete_time, required, 
+      form_id, remark, sort, 
       title, type, update_time
       )
-    values (#{createTime,jdbcType=INTEGER}, #{deleteTime,jdbcType=INTEGER}, #{essential,jdbcType=VARCHAR}, 
-      #{fid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+    values (#{createTime,jdbcType=INTEGER}, #{deleteTime,jdbcType=INTEGER}, #{required,jdbcType=INTEGER}, 
+      #{formId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
       #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{updateTime,jdbcType=INTEGER}
       )
   </insert>
@@ -129,11 +129,11 @@
       <if test="deleteTime != null">
         delete_time,
       </if>
-      <if test="essential != null">
-        essential,
+      <if test="required != null">
+        required,
       </if>
-      <if test="fid != null">
-        fid,
+      <if test="formId != null">
+        form_id,
       </if>
       <if test="remark != null">
         remark,
@@ -158,11 +158,11 @@
       <if test="deleteTime != null">
         #{deleteTime,jdbcType=INTEGER},
       </if>
-      <if test="essential != null">
-        #{essential,jdbcType=VARCHAR},
+      <if test="required != null">
+        #{required,jdbcType=INTEGER},
       </if>
-      <if test="fid != null">
-        #{fid,jdbcType=INTEGER},
+      <if test="formId != null">
+        #{formId,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
@@ -199,11 +199,11 @@
       <if test="record.deleteTime != null">
         delete_time = #{record.deleteTime,jdbcType=INTEGER},
       </if>
-      <if test="record.essential != null">
-        essential = #{record.essential,jdbcType=VARCHAR},
+      <if test="record.required != null">
+        required = #{record.required,jdbcType=INTEGER},
       </if>
-      <if test="record.fid != null">
-        fid = #{record.fid,jdbcType=INTEGER},
+      <if test="record.formId != null">
+        form_id = #{record.formId,jdbcType=INTEGER},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -230,8 +230,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=INTEGER},
       delete_time = #{record.deleteTime,jdbcType=INTEGER},
-      essential = #{record.essential,jdbcType=VARCHAR},
-      fid = #{record.fid,jdbcType=INTEGER},
+      required = #{record.required,jdbcType=INTEGER},
+      form_id = #{record.formId,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
@@ -250,11 +250,11 @@
       <if test="deleteTime != null">
         delete_time = #{deleteTime,jdbcType=INTEGER},
       </if>
-      <if test="essential != null">
-        essential = #{essential,jdbcType=VARCHAR},
+      <if test="required != null">
+        required = #{required,jdbcType=INTEGER},
       </if>
-      <if test="fid != null">
-        fid = #{fid,jdbcType=INTEGER},
+      <if test="formId != null">
+        form_id = #{formId,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -278,8 +278,8 @@
     update ywym_code_field
     set create_time = #{createTime,jdbcType=INTEGER},
       delete_time = #{deleteTime,jdbcType=INTEGER},
-      essential = #{essential,jdbcType=VARCHAR},
-      fid = #{fid,jdbcType=INTEGER},
+      required = #{required,jdbcType=INTEGER},
+      form_id = #{formId,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},

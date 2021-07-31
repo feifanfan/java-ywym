@@ -4,14 +4,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
-public class YwymCodeLog implements Serializable {
+public class YwymUserCodeLog implements Serializable {
     private Integer id;
+
+    private Integer userId;
 
     private Integer codeId;
 
-    private String uuid;
-
-    private Integer uid;
+    @ApiModelProperty(value = "-1:未添加 1：已添加到我收藏")
+    private Boolean collect;
 
     private Date createTime;
 
@@ -29,6 +30,14 @@ public class YwymCodeLog implements Serializable {
         this.id = id;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public Integer getCodeId() {
         return codeId;
     }
@@ -37,20 +46,12 @@ public class YwymCodeLog implements Serializable {
         this.codeId = codeId;
     }
 
-    public String getUuid() {
-        return uuid;
+    public Boolean getCollect() {
+        return collect;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setCollect(Boolean collect) {
+        this.collect = collect;
     }
 
     public Date getCreateTime() {
@@ -84,9 +85,9 @@ public class YwymCodeLog implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", userId=").append(userId);
         sb.append(", codeId=").append(codeId);
-        sb.append(", uuid=").append(uuid);
-        sb.append(", uid=").append(uid);
+        sb.append(", collect=").append(collect);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", deleteTime=").append(deleteTime);

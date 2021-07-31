@@ -284,133 +284,123 @@ public class YwymCodeFieldExample {
             return (Criteria) this;
         }
 
-        public Criteria andEssentialIsNull() {
-            addCriterion("essential is null");
+        public Criteria andRequiredIsNull() {
+            addCriterion("required is null");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialIsNotNull() {
-            addCriterion("essential is not null");
+        public Criteria andRequiredIsNotNull() {
+            addCriterion("required is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialEqualTo(String value) {
-            addCriterion("essential =", value, "essential");
+        public Criteria andRequiredEqualTo(Integer value) {
+            addCriterion("required =", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialNotEqualTo(String value) {
-            addCriterion("essential <>", value, "essential");
+        public Criteria andRequiredNotEqualTo(Integer value) {
+            addCriterion("required <>", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialGreaterThan(String value) {
-            addCriterion("essential >", value, "essential");
+        public Criteria andRequiredGreaterThan(Integer value) {
+            addCriterion("required >", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialGreaterThanOrEqualTo(String value) {
-            addCriterion("essential >=", value, "essential");
+        public Criteria andRequiredGreaterThanOrEqualTo(Integer value) {
+            addCriterion("required >=", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialLessThan(String value) {
-            addCriterion("essential <", value, "essential");
+        public Criteria andRequiredLessThan(Integer value) {
+            addCriterion("required <", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialLessThanOrEqualTo(String value) {
-            addCriterion("essential <=", value, "essential");
+        public Criteria andRequiredLessThanOrEqualTo(Integer value) {
+            addCriterion("required <=", value, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialLike(String value) {
-            addCriterion("essential like", value, "essential");
+        public Criteria andRequiredIn(List<Integer> values) {
+            addCriterion("required in", values, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialNotLike(String value) {
-            addCriterion("essential not like", value, "essential");
+        public Criteria andRequiredNotIn(List<Integer> values) {
+            addCriterion("required not in", values, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialIn(List<String> values) {
-            addCriterion("essential in", values, "essential");
+        public Criteria andRequiredBetween(Integer value1, Integer value2) {
+            addCriterion("required between", value1, value2, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialNotIn(List<String> values) {
-            addCriterion("essential not in", values, "essential");
+        public Criteria andRequiredNotBetween(Integer value1, Integer value2) {
+            addCriterion("required not between", value1, value2, "required");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialBetween(String value1, String value2) {
-            addCriterion("essential between", value1, value2, "essential");
+        public Criteria andFormIdIsNull() {
+            addCriterion("form_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andEssentialNotBetween(String value1, String value2) {
-            addCriterion("essential not between", value1, value2, "essential");
+        public Criteria andFormIdIsNotNull() {
+            addCriterion("form_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFidIsNull() {
-            addCriterion("fid is null");
+        public Criteria andFormIdEqualTo(Integer value) {
+            addCriterion("form_id =", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidIsNotNull() {
-            addCriterion("fid is not null");
+        public Criteria andFormIdNotEqualTo(Integer value) {
+            addCriterion("form_id <>", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidEqualTo(Integer value) {
-            addCriterion("fid =", value, "fid");
+        public Criteria andFormIdGreaterThan(Integer value) {
+            addCriterion("form_id >", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidNotEqualTo(Integer value) {
-            addCriterion("fid <>", value, "fid");
+        public Criteria andFormIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("form_id >=", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidGreaterThan(Integer value) {
-            addCriterion("fid >", value, "fid");
+        public Criteria andFormIdLessThan(Integer value) {
+            addCriterion("form_id <", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("fid >=", value, "fid");
+        public Criteria andFormIdLessThanOrEqualTo(Integer value) {
+            addCriterion("form_id <=", value, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidLessThan(Integer value) {
-            addCriterion("fid <", value, "fid");
+        public Criteria andFormIdIn(List<Integer> values) {
+            addCriterion("form_id in", values, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidLessThanOrEqualTo(Integer value) {
-            addCriterion("fid <=", value, "fid");
+        public Criteria andFormIdNotIn(List<Integer> values) {
+            addCriterion("form_id not in", values, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidIn(List<Integer> values) {
-            addCriterion("fid in", values, "fid");
+        public Criteria andFormIdBetween(Integer value1, Integer value2) {
+            addCriterion("form_id between", value1, value2, "formId");
             return (Criteria) this;
         }
 
-        public Criteria andFidNotIn(List<Integer> values) {
-            addCriterion("fid not in", values, "fid");
-            return (Criteria) this;
-        }
-
-        public Criteria andFidBetween(Integer value1, Integer value2) {
-            addCriterion("fid between", value1, value2, "fid");
-            return (Criteria) this;
-        }
-
-        public Criteria andFidNotBetween(Integer value1, Integer value2) {
-            addCriterion("fid not between", value1, value2, "fid");
+        public Criteria andFormIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("form_id not between", value1, value2, "formId");
             return (Criteria) this;
         }
 

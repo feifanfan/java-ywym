@@ -3,12 +3,12 @@
 <mapper namespace="com.hackerff.code.mapper.YwymCodeLogMapper">
   <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymCodeLog">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="codeid" jdbcType="INTEGER" property="codeid" />
+    <result column="code_id" jdbcType="INTEGER" property="codeId" />
     <result column="uuid" jdbcType="VARCHAR" property="uuid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="create_time" jdbcType="INTEGER" property="createTime" />
-    <result column="update_time" jdbcType="INTEGER" property="updateTime" />
-    <result column="delete_time" jdbcType="INTEGER" property="deleteTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, codeid, uuid, uid, create_time, update_time, delete_time
+    id, code_id, uuid, uid, create_time, update_time, delete_time
   </sql>
   <select id="selectByExample" parameterType="com.hackerff.code.model.YwymCodeLogExample" resultMap="BaseResultMap">
     select
@@ -105,11 +105,11 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_code_log (codeid, uuid, uid, 
+    insert into ywym_code_log (code_id, uuid, uid, 
       create_time, update_time, delete_time
       )
-    values (#{codeid,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER}, #{deleteTime,jdbcType=INTEGER}
+    values (#{codeId,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymCodeLog">
@@ -118,8 +118,8 @@
     </selectKey>
     insert into ywym_code_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="codeid != null">
-        codeid,
+      <if test="codeId != null">
+        code_id,
       </if>
       <if test="uuid != null">
         uuid,
@@ -138,8 +138,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="codeid != null">
-        #{codeid,jdbcType=INTEGER},
+      <if test="codeId != null">
+        #{codeId,jdbcType=INTEGER},
       </if>
       <if test="uuid != null">
         #{uuid,jdbcType=VARCHAR},
@@ -148,13 +148,13 @@
         #{uid,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=INTEGER},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="deleteTime != null">
-        #{deleteTime,jdbcType=INTEGER},
+        #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -170,8 +170,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.codeid != null">
-        codeid = #{record.codeid,jdbcType=INTEGER},
+      <if test="record.codeId != null">
+        code_id = #{record.codeId,jdbcType=INTEGER},
       </if>
       <if test="record.uuid != null">
         uuid = #{record.uuid,jdbcType=VARCHAR},
@@ -180,13 +180,13 @@
         uid = #{record.uid,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=INTEGER},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=INTEGER},
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.deleteTime != null">
-        delete_time = #{record.deleteTime,jdbcType=INTEGER},
+        delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -196,12 +196,12 @@
   <update id="updateByExample" parameterType="map">
     update ywym_code_log
     set id = #{record.id,jdbcType=INTEGER},
-      codeid = #{record.codeid,jdbcType=INTEGER},
+      code_id = #{record.codeId,jdbcType=INTEGER},
       uuid = #{record.uuid,jdbcType=VARCHAR},
       uid = #{record.uid,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=INTEGER},
-      update_time = #{record.updateTime,jdbcType=INTEGER},
-      delete_time = #{record.deleteTime,jdbcType=INTEGER}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      delete_time = #{record.deleteTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -209,8 +209,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymCodeLog">
     update ywym_code_log
     <set>
-      <if test="codeid != null">
-        codeid = #{codeid,jdbcType=INTEGER},
+      <if test="codeId != null">
+        code_id = #{codeId,jdbcType=INTEGER},
       </if>
       <if test="uuid != null">
         uuid = #{uuid,jdbcType=VARCHAR},
@@ -219,25 +219,25 @@
         uid = #{uid,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=INTEGER},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="deleteTime != null">
-        delete_time = #{deleteTime,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymCodeLog">
     update ywym_code_log
-    set codeid = #{codeid,jdbcType=INTEGER},
+    set code_id = #{codeId,jdbcType=INTEGER},
       uuid = #{uuid,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=INTEGER}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
