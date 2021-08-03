@@ -29,8 +29,8 @@
 ## 模块划分
     ywym
     ├── ywym-api 用户接口
-    ├──ywym-admin 后台接口（企业管理端）
-    ├── ywym-boss  总管理端接口（boss系统）
+    ├── ywym-company 后台接口（企业管理端）
+    ├── ywym-admin  总管理端接口（boss系统）
     ├── ywym-common 通用工具包
     ├── ywym-security jwt验证及权限管理(SpringSecurity封装公用模块)
     └── ywym-service MyBatisGenerator生成的数据库操作代码

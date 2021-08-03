@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hackerff.code.mapper.YwymUserCodeLogMapper">
-  <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymUserCodeLog">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="code_id" jdbcType="INTEGER" property="codeId" />
-    <result column="collect" jdbcType="BIT" property="collect" />
+<mapper namespace="com.hackerff.code.mapper.YwymRoleMapper">
+  <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymRole">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="admin_count" jdbcType="INTEGER" property="adminCount" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, code_id, collect, create_time, update_time
+    id, name, description, admin_count, create_time, status, sort
   </sql>
-  <select id="selectByExample" parameterType="com.hackerff.code.model.YwymUserCodeLogExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hackerff.code.model.YwymRoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from ywym_user_code_log
+    from ywym_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,97 +85,108 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from ywym_user_code_log
-    where id = #{id,jdbcType=INTEGER}
+    from ywym_role
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ywym_user_code_log
-    where id = #{id,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ywym_role
+    where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.hackerff.code.model.YwymUserCodeLogExample">
-    delete from ywym_user_code_log
+  <delete id="deleteByExample" parameterType="com.hackerff.code.model.YwymRoleExample">
+    delete from ywym_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hackerff.code.model.YwymUserCodeLog">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+  <insert id="insert" parameterType="com.hackerff.code.model.YwymRole">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_user_code_log (user_id, code_id, collect, 
-      create_time, update_time)
-    values (#{userId,jdbcType=INTEGER}, #{codeId,jdbcType=INTEGER}, #{collect,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    insert into ywym_role (name, description, admin_count, 
+      create_time, status, sort
+      )
+    values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{adminCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymUserCodeLog">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+  <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymRole">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_user_code_log
+    insert into ywym_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        user_id,
+      <if test="name != null">
+        name,
       </if>
-      <if test="codeId != null">
-        code_id,
+      <if test="description != null">
+        description,
       </if>
-      <if test="collect != null">
-        collect,
+      <if test="adminCount != null">
+        admin_count,
       </if>
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="updateTime != null">
-        update_time,
+      <if test="status != null">
+        status,
+      </if>
+      <if test="sort != null">
+        sort,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="codeId != null">
-        #{codeId,jdbcType=INTEGER},
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
       </if>
-      <if test="collect != null">
-        #{collect,jdbcType=BIT},
+      <if test="adminCount != null">
+        #{adminCount,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.hackerff.code.model.YwymUserCodeLogExample" resultType="java.lang.Long">
-    select count(*) from ywym_user_code_log
+  <select id="countByExample" parameterType="com.hackerff.code.model.YwymRoleExample" resultType="java.lang.Long">
+    select count(*) from ywym_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update ywym_user_code_log
+    update ywym_role
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.codeId != null">
-        code_id = #{record.codeId,jdbcType=INTEGER},
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
-      <if test="record.collect != null">
-        collect = #{record.collect,jdbcType=BIT},
+      <if test="record.adminCount != null">
+        admin_count = #{record.adminCount,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -182,45 +194,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update ywym_user_code_log
-    set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      code_id = #{record.codeId,jdbcType=INTEGER},
-      collect = #{record.collect,jdbcType=BIT},
+    update ywym_role
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      admin_count = #{record.adminCount,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+      status = #{record.status,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymUserCodeLog">
-    update ywym_user_code_log
+  <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymRole">
+    update ywym_role
     <set>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="codeId != null">
-        code_id = #{codeId,jdbcType=INTEGER},
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
-      <if test="collect != null">
-        collect = #{collect,jdbcType=BIT},
+      <if test="adminCount != null">
+        admin_count = #{adminCount,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymUserCodeLog">
-    update ywym_user_code_log
-    set user_id = #{userId,jdbcType=INTEGER},
-      code_id = #{codeId,jdbcType=INTEGER},
-      collect = #{collect,jdbcType=BIT},
+  <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymRole">
+    update ywym_role
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      admin_count = #{adminCount,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -4,19 +4,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
-public class YwymUserCodeLog implements Serializable {
+public class YwymCodeJob implements Serializable {
     private Integer id;
+
+    private Integer companyId;
 
     private Integer userId;
 
-    private Integer codeId;
-
-    @ApiModelProperty(value = "-1:未添加 1：已添加到我收藏")
-    private Boolean collect;
-
     private Date createTime;
 
-    private Date updateTime;
+    private Integer count;
+
+    private Date endTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -28,28 +27,20 @@ public class YwymUserCodeLog implements Serializable {
         this.id = id;
     }
 
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
     public Integer getUserId() {
         return userId;
     }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public Integer getCodeId() {
-        return codeId;
-    }
-
-    public void setCodeId(Integer codeId) {
-        this.codeId = codeId;
-    }
-
-    public Boolean getCollect() {
-        return collect;
-    }
-
-    public void setCollect(Boolean collect) {
-        this.collect = collect;
     }
 
     public Date getCreateTime() {
@@ -60,12 +51,20 @@ public class YwymUserCodeLog implements Serializable {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     @Override
@@ -75,11 +74,11 @@ public class YwymUserCodeLog implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", companyId=").append(companyId);
         sb.append(", userId=").append(userId);
-        sb.append(", codeId=").append(codeId);
-        sb.append(", collect=").append(collect);
         sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
+        sb.append(", count=").append(count);
+        sb.append(", endTime=").append(endTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
