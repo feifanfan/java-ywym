@@ -101,6 +101,13 @@ public class CodeController {
         }
         return;
     }
+
+    @ApiOperation("收藏二维码")
+    @PostMapping("/code/collect/{codeId}")
+    public CommonResult collectCode(@PathVariable int codeId){
+        userCodeService.CollectCode(userService.getCurrentUser().getId(),codeId);
+        return CommonResult.success(null);
+    }
 }
 
 

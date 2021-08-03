@@ -6,11 +6,10 @@ import cn.hutool.crypto.SecureUtil;
 import com.hackerff.code.api.service.CodeService;
 import com.hackerff.code.mapper.YwymCodeMapper;
 import com.hackerff.code.mapper.YwymUserCodeMapper;
-import com.hackerff.code.model.YwymCode;
-import com.hackerff.code.model.YwymCodeExample;
-import com.hackerff.code.model.YwymUserCode;
+import com.hackerff.code.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -59,4 +58,6 @@ public class CodeServiceImpl implements CodeService {
         List<YwymCode> codes = codeMapper.selectByExample(example);
         return codes;
     }
+
+
 }

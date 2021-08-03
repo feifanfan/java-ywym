@@ -13,6 +13,7 @@
         <module>ywym-service</module>
         <module>ywym-api</module>
         <module>ywym-security</module>
+        <module>ywym-company</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

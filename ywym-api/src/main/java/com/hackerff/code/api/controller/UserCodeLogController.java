@@ -33,9 +33,9 @@ public class UserCodeLogController {
 
     @ApiOperation("用户使用过的二维码列表")
     @GetMapping("/user-code-log")
-    public CommonResult userCodeLog(@RequestParam(required = false, defaultValue = "1") int pageNum, @RequestParam(required = false, defaultValue = "15") int pageSize) {
+    public CommonResult userCodeLog(@RequestParam(required = false, defaultValue = "1") int page, @RequestParam(required = false, defaultValue = "15") int pageSize) {
         YwymUser user = userService.getCurrentUser();
-        List<YwymUserCodeLog> list = userCodeLogService.getLogsByUserId(user.getId(), pageNum, pageSize);
+        List<YwymUserCodeLog> list = userCodeLogService.getLogsByUserId(user.getId(), page, pageSize);
         return CommonResult.success(CommonPage.restPage(list));
     }
 

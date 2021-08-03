@@ -1,11 +1,12 @@
 package com.hackerff.code.api.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.hackerff.code.api.service.UserCodeLogService;
 import com.hackerff.code.mapper.YwymUserCodeLogMapper;
-import com.hackerff.code.mapper.YwymUserCodeMapper;
-import com.hackerff.code.model.*;
+import com.hackerff.code.model.YwymCode;
+import com.hackerff.code.model.YwymUser;
+import com.hackerff.code.model.YwymUserCodeLog;
+import com.hackerff.code.model.YwymUserCodeLogExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -44,10 +45,11 @@ public class UserCodeLogServiceImpl implements UserCodeLogService {
     }
 
     @Override
-    public List<YwymUserCodeLog> getLogsByUserId(int userId,int pageNum,int pageSize) {
+    public List<YwymUserCodeLog> getLogsByUserId(int userId,int page,int pageSize) {
         YwymUserCodeLogExample example = new YwymUserCodeLogExample();
         example.createCriteria().andUserIdEqualTo(userId);
-        PageHelper.startPage(pageNum,pageSize);
+        example.setOrderByClause("update_time desc");
+        PageHelper.startPage(page,pageSize);
         List<YwymUserCodeLog> logs = userCodeLogMapper.selectByExample(example);
         return logs;
     }
