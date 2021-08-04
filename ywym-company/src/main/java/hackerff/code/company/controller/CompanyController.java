@@ -1,13 +1,13 @@
 package hackerff.code.company.controller;
 
 import com.hackerff.code.common.result.CommonResult;
+import hackerff.code.company.dto.LoginParam;
 import hackerff.code.company.service.CodeService;
+import hackerff.code.company.service.CompanyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author hackerff
@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
 
     @Autowired
-    private CodeService codeService;
+    private CompanyService companyService;
 
-    @ApiOperation("获取列表")
-    @GetMapping("/list")
-    public CommonResult adminList() {
-        return CommonResult.success("111");
+    @PostMapping("login")
+    public CommonResult login(@RequestBody LoginParam param){
+       String token = companyService.login(param.getUsername(), param.getPassword());
+       return CommonResult.success(token);
     }
 
 }

@@ -1,6 +1,7 @@
 package hackerff.code.company.domain;
 
 import com.hackerff.code.model.YwymAdmin;
+import com.hackerff.code.model.YwymCompany;
 import com.hackerff.code.model.YwymUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

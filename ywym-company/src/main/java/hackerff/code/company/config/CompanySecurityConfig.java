@@ -1,7 +1,7 @@
 package hackerff.code.company.config;
 
 import com.hackerff.code.security.config.SecurityConfig;
-import hackerff.code.company.service.AdminService;
+import hackerff.code.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class CompanySecurityConfig extends SecurityConfig {
     @Autowired
-    public AdminService service;
+    public CompanyService service;
 
     @Bean
     public UserDetailsService userDetailsService(){
