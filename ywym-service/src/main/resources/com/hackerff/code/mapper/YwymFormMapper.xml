@@ -3,10 +3,10 @@
 <mapper namespace="com.hackerff.code.mapper.YwymFormMapper">
   <resultMap id="BaseResultMap" type="com.hackerff.code.model.YwymForm">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
-    <result column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, cid, create_time, delete_time, gid, remark, title, update_time
+    id, company_id, create_time, delete_time, goods_id, remark, title, update_time
   </sql>
   <select id="selectByExample" parameterType="com.hackerff.code.model.YwymFormExample" resultMap="BaseResultMap">
     select
@@ -106,11 +106,11 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into ywym_form (cid, create_time, delete_time, 
-      gid, remark, title, 
+    insert into ywym_form (company_id, create_time, delete_time, 
+      goods_id, remark, title, 
       update_time)
-    values (#{cid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, 
-      #{gid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+    values (#{companyId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{goodsId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.hackerff.code.model.YwymForm">
@@ -119,8 +119,8 @@
     </selectKey>
     insert into ywym_form
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        cid,
+      <if test="companyId != null">
+        company_id,
       </if>
       <if test="createTime != null">
         create_time,
@@ -128,8 +128,8 @@
       <if test="deleteTime != null">
         delete_time,
       </if>
-      <if test="gid != null">
-        gid,
+      <if test="goodsId != null">
+        goods_id,
       </if>
       <if test="remark != null">
         remark,
@@ -142,8 +142,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -151,8 +151,8 @@
       <if test="deleteTime != null">
         #{deleteTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="gid != null">
-        #{gid,jdbcType=INTEGER},
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
@@ -177,8 +177,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=INTEGER},
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -186,8 +186,8 @@
       <if test="record.deleteTime != null">
         delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.gid != null">
-        gid = #{record.gid,jdbcType=INTEGER},
+      <if test="record.goodsId != null">
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -206,10 +206,10 @@
   <update id="updateByExample" parameterType="map">
     update ywym_form
     set id = #{record.id,jdbcType=INTEGER},
-      cid = #{record.cid,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
-      gid = #{record.gid,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -220,8 +220,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.hackerff.code.model.YwymForm">
     update ywym_form
     <set>
-      <if test="cid != null">
-        cid = #{cid,jdbcType=INTEGER},
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -229,8 +229,8 @@
       <if test="deleteTime != null">
         delete_time = #{deleteTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="gid != null">
-        gid = #{gid,jdbcType=INTEGER},
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -246,10 +246,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hackerff.code.model.YwymForm">
     update ywym_form
-    set cid = #{cid,jdbcType=INTEGER},
+    set company_id = #{companyId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       delete_time = #{deleteTime,jdbcType=TIMESTAMP},
-      gid = #{gid,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

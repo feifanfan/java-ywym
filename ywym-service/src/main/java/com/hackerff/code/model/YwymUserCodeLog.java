@@ -18,6 +18,8 @@ public class YwymUserCodeLog implements Serializable {
 
     private Date updateTime;
 
+    private Date deleteTime;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -68,6 +70,14 @@ public class YwymUserCodeLog implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public Date getDeleteTime() {
+        return deleteTime;
+    }
+
+    public void setDeleteTime(Date deleteTime) {
+        this.deleteTime = deleteTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -80,6 +90,7 @@ public class YwymUserCodeLog implements Serializable {
         sb.append(", collect=").append(collect);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", deleteTime=").append(deleteTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

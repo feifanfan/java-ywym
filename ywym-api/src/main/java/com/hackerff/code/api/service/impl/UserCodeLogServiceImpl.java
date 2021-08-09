@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,7 +49,7 @@ public class UserCodeLogServiceImpl implements UserCodeLogService {
     @Override
     public List<YwymUserCodeLog> getLogsByUserId(int userId,int page,int pageSize) {
         YwymUserCodeLogExample example = new YwymUserCodeLogExample();
-        example.createCriteria().andUserIdEqualTo(userId);
+        example.createCriteria().andUserIdEqualTo(userId).andDeleteTimeIsNull();
         example.setOrderByClause("update_time desc");
         PageHelper.startPage(page,pageSize);
         List<YwymUserCodeLog> logs = userCodeLogMapper.selectByExample(example);

@@ -7,13 +7,13 @@ import java.util.Date;
 public class YwymForm implements Serializable {
     private Integer id;
 
-    private Integer cid;
+    private Integer companyId;
 
     private Date createTime;
 
     private Date deleteTime;
 
-    private Integer gid;
+    private Integer goodsId;
 
     private String remark;
 
@@ -31,12 +31,12 @@ public class YwymForm implements Serializable {
         this.id = id;
     }
 
-    public Integer getCid() {
-        return cid;
+    public Integer getCompanyId() {
+        return companyId;
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 
     public Date getCreateTime() {
@@ -55,12 +55,12 @@ public class YwymForm implements Serializable {
         this.deleteTime = deleteTime;
     }
 
-    public Integer getGid() {
-        return gid;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setGid(Integer gid) {
-        this.gid = gid;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public String getRemark() {
@@ -94,10 +94,10 @@ public class YwymForm implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", cid=").append(cid);
+        sb.append(", companyId=").append(companyId);
         sb.append(", createTime=").append(createTime);
         sb.append(", deleteTime=").append(deleteTime);
-        sb.append(", gid=").append(gid);
+        sb.append(", goodsId=").append(goodsId);
         sb.append(", remark=").append(remark);
         sb.append(", title=").append(title);
         sb.append(", updateTime=").append(updateTime);

@@ -40,11 +40,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .permitAll();
         // 任何请求需要身份认证
         registry.and()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                // 关闭跨站请求防护及不使用session
-                .and()
+//                .authorizeRequests()
+//                .anyRequest()
+//                .authenticated()
+//                // 关闭跨站请求防护及不使用session
+//                .and()
                 .csrf()
                 .disable()
                 .sessionManagement()
